@@ -381,10 +381,11 @@ static void MX_LCD_Init(void)
   hlcd.Init.BlinkMode = LCD_BLINKMODE_OFF;
   hlcd.Init.BlinkFrequency = LCD_BLINKFREQUENCY_DIV8;
   hlcd.Init.HighDrive = LCD_HIGHDRIVE_DISABLE;
-  if (HAL_LCD_Init(&hlcd) != HAL_OK)
-  {
+#ifdef HAL_LCD_MODULE_ENABLED
+  if (HAL_LCD_Init(&hlcd) != HAL_OK) {
     Error_Handler();
   }
+#endif
   /* USER CODE BEGIN LCD_Init 2 */
 
   /* USER CODE END LCD_Init 2 */
