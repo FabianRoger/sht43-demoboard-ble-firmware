@@ -8,6 +8,16 @@ message("Toolchain " ${TOOLCHAIN} " installed in " ${TOOLCHAIN_PATH})
 set(CMAKE_C_STANDARD_INCLUDE_DIRECTORIES ${TOOLCHAIN_PATH}/${TOOLCHAIN}/include)
 message("Include directory of standard headers = " ${CMAKE_C_STANDARD_INCLUDE_DIRECTORIES})
 
+# Try to find arm-none-eabi GCC "include-fixed" (Homebrew layout) and add it as system include
+file(GLOB ARM_GCC_INCLUDE_FIXED
+    /opt/homebrew/Cellar/arm-none-eabi-gcc/*/lib/gcc/arm-none-eabi/*/include-fixed
+)
+if(ARM_GCC_INCLUDE_FIXED)
+    list(GET ARM_GCC_INCLUDE_FIXED 0 ARM_GCC_INCLUDE_FIXED_DIR)
+    message(STATUS "Found arm-none-eabi include-fixed: ${ARM_GCC_INCLUDE_FIXED_DIR}")
+    include_directories(SYSTEM ${ARM_GCC_INCLUDE_FIXED_DIR})
+endif()
+
 # Toolchain configuration
 set(CMAKE_SYSTEM_NAME       Generic)
 set(CMAKE_SYSTEM_PROCESSOR  arm)
