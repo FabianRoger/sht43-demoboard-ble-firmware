@@ -323,6 +323,7 @@ void HAL_IPCC_MspDeInit(IPCC_HandleTypeDef* hipcc)
 
 }
 
+#ifdef HAL_LCD_MODULE_ENABLED
 /**
 * @brief LCD MSP Initialization
 * This function configures the hardware resources used in this example
@@ -426,6 +427,7 @@ void HAL_LCD_MspInit(LCD_HandleTypeDef* hlcd)
 * @param hlcd: LCD handle pointer
 * @retval None
 */
+
 void HAL_LCD_MspDeInit(LCD_HandleTypeDef* hlcd)
 {
   if(hlcd->Instance==LCD)
@@ -480,6 +482,7 @@ void HAL_LCD_MspDeInit(LCD_HandleTypeDef* hlcd)
   }
 
 }
+#endif /* HAL_LCD_MODULE_ENABLED */
 
 /**
 * @brief QSPI MSP Initialization
