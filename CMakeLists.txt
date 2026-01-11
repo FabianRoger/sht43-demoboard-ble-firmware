@@ -8,9 +8,11 @@ message("Toolchain " ${TOOLCHAIN} " installed in " ${TOOLCHAIN_PATH})
 set(CMAKE_C_STANDARD_INCLUDE_DIRECTORIES ${TOOLCHAIN_PATH}/${TOOLCHAIN}/include)
 message("Include directory of standard headers = " ${CMAKE_C_STANDARD_INCLUDE_DIRECTORIES})
 
-# Try to find arm-none-eabi GCC "include-fixed" (Homebrew layout) and add it as system include
+# Detect common Homebrew / arm-none-eabi layout and add compiler "include-fixed"
+# This ensures stdint.h and other fixed headers are found on macOS Homebrew installs.
 file(GLOB ARM_GCC_INCLUDE_FIXED
     /opt/homebrew/Cellar/arm-none-eabi-gcc/*/lib/gcc/arm-none-eabi/*/include-fixed
+    ${TOOLCHAIN_PATH}/../lib/gcc/arm-none-eabi/*/include-fixed
 )
 if(ARM_GCC_INCLUDE_FIXED)
     list(GET ARM_GCC_INCLUDE_FIXED 0 ARM_GCC_INCLUDE_FIXED_DIR)
