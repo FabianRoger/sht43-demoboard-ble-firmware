@@ -106,7 +106,6 @@ set(APP_SOURCES
     source/app/test/CyclicBufferTest.c
     source/app/test/ListTest.c
     source/app/test/TraceTest.c
-    source/app/test/ScreenTest.c
     source/app/test/AdcTest.c
     source/app/test/PresentationTest.c
     source/app/test/FlashTest.c
@@ -134,7 +133,6 @@ set(APP_SOURCES
     source/app_service/power_manager/SchedulerOverride.c
     source/app_service/power_manager/BatteryMonitor.c
     source/app_service/sensor/Sht4x.c
-    source/app_service/screen/Screen.c
     source/app_service/sensor/SensorController.c
     source/app_service/nvm/ProductionParameters.c
     source/app_service/timer_server/TimerServer.c

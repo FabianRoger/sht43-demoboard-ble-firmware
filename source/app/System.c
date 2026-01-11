@@ -49,7 +49,6 @@
 #include "app_service/nvm/ProductionParameters.h"
 #include "app_service/power_manager/BatteryMonitor.h"
 #include "app_service/power_manager/PowerManager.h"
-#include "app_service/screen/Screen.h"
 #include "app_service/sensor/SensorController.h"
 #include "app_service/sensor/Sht4x.h"
 #include "app_service/timer_server/TimerServer.h"
@@ -139,8 +138,6 @@ void System_Init(void) {
   Gpio_InitClocks();
 
   Flash_Init();
-
-  Screen_Init();
 
   PowerManger_Init();
 
